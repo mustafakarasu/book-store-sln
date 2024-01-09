@@ -1,0 +1,1 @@
+# patika-net-core-test
