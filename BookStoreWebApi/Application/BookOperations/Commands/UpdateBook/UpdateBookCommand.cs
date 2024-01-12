@@ -18,8 +18,8 @@ namespace BookStoreWebApi.Application.BookOperations.Commands.UpdateBook
         {
             var book = _context.Books.SingleOrDefault(x => x.Id == BookId);
 
-            if (book is null)
-                throw new InvalidOperationException("Kitap Bulunamadı");
+            if (book is not null)
+                throw new InvalidOperationException("Bu isimle bir kitap mevcuttur.");
 
 
             book.GenreId = Model.GenreId != default ? Model.GenreId : book.GenreId;
