@@ -1,17 +1,11 @@
-﻿using BookStoreWebApi.Application.BookOperations.Commands.CreateBook;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using BookStoreWebApi.Application.AuthorOprations.Queries.GetAuthorDetail;
+using BookStoreWebApi.DBOperations;
 using FluentAssertions;
 using TestSetup;
 using Xunit;
-using BookStoreWebApi.Application.BookOperations.Queries.GetBookDetail;
-using AutoMapper;
-using BookStoreWebApi.DBOperations;
 
-namespace WebApi.UnitTests.Application.BookOperations.Queries.GetBookDetail
+namespace WebApi.UnitTests.Application.AuthorOperations.Queries.GetAuthorDetail
 {
     public class GetAuthorDetailQueryValidatorTests : IClassFixture<CommonTestFixture>
     {
@@ -26,13 +20,13 @@ namespace WebApi.UnitTests.Application.BookOperations.Queries.GetBookDetail
         [Theory]
         [InlineData(0)]
         [InlineData(-1)]
-        public void WhenBookIdIsGivenLowerThanZero_Validator_ShouldBeReturnError(int bookId)
+        public void WhenAuthorIdIsGivenLowerThanZero_Validator_ShouldBeReturnError(int authorId)
         {
             //arrange
-            GetBookDetailQuery query = new GetBookDetailQuery(_context, _mapper);
+            GetAuthorDetailQuery query = new GetAuthorDetailQuery(_context, _mapper);
 
-            query.BookId = bookId;
-            GetBookDetailQueryValidator validator = new GetBookDetailQueryValidator();
+            query.AuthorId = authorId;
+            GetAuthorDetailQueryValidator validator = new GetAuthorDetailQueryValidator();
             var errors = validator.Validate(query);
 
             //act & assert

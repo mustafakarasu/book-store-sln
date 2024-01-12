@@ -15,11 +15,11 @@ using BookStoreWebApi.Entities;
 
 namespace WebApi.UnitTests.Application.BookOperations.Queries.GetBookDetail
 {
-    public class GetBookDetailQueryTests : IClassFixture<CommonTestFixture>
+    public class GetAuthorDetailQueryTests : IClassFixture<CommonTestFixture>
     {
         private readonly BookStoreDbContext _context;
         private readonly IMapper _mapper;
-        public GetBookDetailQueryTests(CommonTestFixture testFixture)
+        public GetAuthorDetailQueryTests(CommonTestFixture testFixture)
         {
             _context = testFixture.Context;
             _mapper = testFixture.Mapper;

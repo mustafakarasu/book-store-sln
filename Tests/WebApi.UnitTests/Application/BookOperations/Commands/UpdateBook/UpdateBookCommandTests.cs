@@ -33,6 +33,7 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.UpdateBook
             _context.SaveChanges();
 
             UpdateBookCommand command = new UpdateBookCommand(_context);
+            command.BookId = book.Id;
             command.Model = new UpdateBookModel() { Title = book.Title };
 
             //act & assert
